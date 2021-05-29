@@ -1,0 +1,4 @@
+{
+    "localHost": "http://localhost:49576/api/",
+    "serverHost": "http://backofficeservice.theradix.in/api"
+}
