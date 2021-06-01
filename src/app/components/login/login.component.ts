@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         if (result.StatusCode == 200) {
                   
           if(result.Result!=undefined || result.Result!=null){
-            this.router.navigate(['/home'], { queryParams: { 'user': "user" } });
+            this.router.navigate(['/layout']);
           }
           else{
             alert('Invalid login');

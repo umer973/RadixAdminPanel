@@ -10,11 +10,16 @@ const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     {
-      path: '', component: LayoutComponent,
+      path: 'layout', component: LayoutComponent,
       children: [
-        { path: 'home', component: MainComponent },
+        { path: 'dashboard', component: MainComponent },
+        { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         { path: 'testimonials', component: TestimonialsComponent },
       ]
+    },
+    {
+      path: 'layout',
+      loadChildren: () => import('./components/layout/layout.module').then(mod => mod.LayoutModule)
     },
 ];
 
