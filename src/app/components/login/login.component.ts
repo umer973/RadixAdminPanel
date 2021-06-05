@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification.service';
+import { SpinnerService } from 'src/app/services/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   user: User;
   constructor(private formBuilder: FormBuilder, private service: UserService,
     private router: Router,
-    private notificationservice:NotificationService) { }
+    private notificationservice:NotificationService,
+    private spinnerService:SpinnerService) { }
 
   ngOnInit(): void {
     this.createFormControls();
@@ -38,11 +40,12 @@ export class LoginComponent implements OnInit {
     if (this.userform.valid) {
 
       this.user = this.userform.getRawValue();
-      console.warn(this.user);
-      
+    
+      this.spinnerService.show();
       this.service.PostLogin(this.user).subscribe(res => {
         console.log(res);
         let result: any = res;
+        this.spinnerService.hide();
         if (result.StatusCode == 200) {
                   
           if(result.Result!=undefined || result.Result!=null){
@@ -54,11 +57,14 @@ export class LoginComponent implements OnInit {
           }
         }
 
-      }, err => {
+      }
+      , err => {
 
         this.notificationservice.showError('Internal server error','Radix');
+       
 
       });
+     
 
       this.userform.reset();
 
