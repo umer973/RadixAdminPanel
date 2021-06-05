@@ -4,6 +4,7 @@ import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   userform: FormGroup;
   user: User;
   constructor(private formBuilder: FormBuilder, private service: UserService,
-    private router: Router) { }
+    private router: Router,
+    private notificationservice:NotificationService) { }
 
   ngOnInit(): void {
     this.createFormControls();
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit {
 
       this.user = this.userform.getRawValue();
       console.warn(this.user);
-
+      
       this.service.PostLogin(this.user).subscribe(res => {
         console.log(res);
         let result: any = res;
@@ -47,13 +49,14 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/layout']);
           }
           else{
-            alert('Invalid login');
+           
+            this.notificationservice.showInfo('Invalid login','Radix');
           }
         }
 
       }, err => {
 
-        alert("Internal server error");
+        this.notificationservice.showError('Internal server error','Radix');
 
       });
 

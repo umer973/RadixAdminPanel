@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { UserService } from './services/user.service';
 import { LayoutModule } from './components/layout/layout.module';
+import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,14 @@ import { LayoutModule } from './components/layout/layout.module';
     ReactiveFormsModule,
     HttpClientModule,
     LayoutModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      preventDuplicates: true,
+      positionClass: 'toast-top-center'
+    }),
+    
+    
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
