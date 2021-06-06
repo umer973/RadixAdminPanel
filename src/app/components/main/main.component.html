@@ -17,7 +17,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Enquiry </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{result?.length}}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{result.Result?.length}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -109,7 +109,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let data of result">
+                            <tr *ngFor="let data of result.Result">
                                 <th>{{data.FullName}}</th>
                                 <th>{{data.ContactNo}}</th>
                                 <th>{{data.Email}}</th>

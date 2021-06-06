@@ -5,11 +5,18 @@ import { LayoutComponent } from './layout.component';
 import { MainComponent } from '../main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PartnerComponent } from '../partner/partner.component';
 
 
 
 @NgModule({
-  declarations: [LayoutComponent,MainComponent,HeaderComponent,FooterComponent],
+  declarations: [
+    LayoutComponent,
+    MainComponent,
+    HeaderComponent,
+    FooterComponent,
+    PartnerComponent
+  ],
   imports: [
     CommonModule,
     LayoutRoutingModule

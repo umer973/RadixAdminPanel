@@ -29,7 +29,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.spinnerService.show();
     this.commonservice.GetInitialData().subscribe(res => {
       let response = res;
-      this.result = response.Result;
+      this.result = response;
       console.log(this.result);
       this.spinnerService.hide();
     }, err => {

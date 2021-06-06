@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
- ngOnInit(): void {
-  
+  constructor(private route:Router) {
+
+  }
+
+  navigate() {
+
+    this.route.navigate(['dashboard/partner'])
   }
 
 }
