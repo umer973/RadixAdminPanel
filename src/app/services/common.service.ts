@@ -22,9 +22,9 @@ export class CommonService {
   postFile(fileToUpload: File) {
 
     const formData: FormData = new FormData();
-    formData.append('image', fileToUpload, fileToUpload.name);
+    formData.append('file', fileToUpload, fileToUpload.name);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
-    return this.http.post(this.url + "UploadImage", formData, { headers: headers });
+    return this.http.post(this.url + "UploadFile", formData, { headers: headers });
   }
 }
