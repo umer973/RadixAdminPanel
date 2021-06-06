@@ -6,6 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/services/notification.service';
 import { SpinnerService } from 'src/app/services/spinner.service';
+import { MessageType } from 'src/app/enums/messagetype.enum';
 
 @Component({
   selector: 'app-login',
@@ -45,29 +46,31 @@ export class LoginComponent implements OnInit {
       this.service.PostLogin(this.user).subscribe(res => {
         console.log(res);
         let result: any = res;
-        this.spinnerService.hide();
+        
         if (result.StatusCode == 200) {
                   
           if(result.Result!=undefined || result.Result!=null){
-            this.router.navigate(['/layout']);
+           
+            localStorage.setItem('IsLoggedIn', 'true');
+            this.router.navigate(['/layout'], { queryParams: { 'user': result.Result.UserName}});
+            this.userform.reset();
+           
           }
           else{
            
-            this.notificationservice.showInfo('Invalid login','Radix');
+            this.notificationservice.showInfo(MessageType.Invalid,'Radix');
           }
         }
+        this.spinnerService.hide();
+        
 
       }
       , err => {
 
-        this.notificationservice.showError('Internal server error','Radix');
-       
+        this.notificationservice.showError(MessageType.ServerError,'Radix');
+        this.spinnerService.hide();
 
       });
-     
-
-      this.userform.reset();
-
     }
 
   }

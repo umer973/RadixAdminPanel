@@ -5,16 +5,17 @@ import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class CommonService {
 
   constructor(private http: HttpClient) { }
 
   url = environment.API_URl
 
-  PostLogin(body: any) {
+  GetInitialData() {
 
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.url + "Login", body, { headers: headers });
+    return this.http.get(this.url + "GetEnquiry", { headers: headers });
   }
+
 }
