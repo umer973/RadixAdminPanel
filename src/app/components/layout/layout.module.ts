@@ -6,6 +6,7 @@ import { MainComponent } from '../main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PartnerComponent } from '../partner/partner.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { PartnerComponent } from '../partner/partner.component';
   ],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class LayoutModule { }

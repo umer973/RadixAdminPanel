@@ -1983,7 +1983,9 @@
   textarea.form-control {
     height: auto;
   }
-  
+  .partners .form-group {
+    width: 50%;
+  }
   .form-group {
     margin-bottom: 1rem;
   }
