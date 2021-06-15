@@ -1,13 +1,62 @@
 <!-- Begin Page Content -->
 <div class="container-fluid partners">
-
+    <h4 class="font-weight-bold">Our Partners</h4>
+    <div class="row">
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h4>
+                    <a href="javascript:void(0)" class="btn" (click)="open_popup()">
+                        <span class="fa fa-plus" style="margin-right: 4px;"></span>Add Partner
+                    </a>
+                </h4>
+                <!-- search -->
+                <div class="d-sm-inline-block form-inline navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn" type="button">
+                                <i class="fa fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mobile Number</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of result.Result">
+                                <th>{{data.PartnerName}}</th>
+                                <th>{{data.ContactNo}}</th>
+                                <th>{{data.Email}}</th>
+                                <th>{{data.Address}}</th>
+                                <button type="submit" class="btn">Update</button>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Page Heading -->
-    <h1 class="h3 text-gray-800">Add Partners</h1>
 
     <!-- Content Row -->
-    <div class="row">
-        <!-- Border Left Utilities -->
-        <div class="col-lg-12">
+    <div id="form_popup" class="col-lg-7 col-md-7 col-sm-8 col-10">
+        <div class="top">
+            <h2>Add Partner</h2>
+            <a href="javascript:void(0)" class="closebtn" (click)="close_popup()">&times;</a>
+        </div>
             <form [formGroup]="partnerForm">
                 <div class="form-row">
                     <div class="form-group">           
@@ -38,8 +87,7 @@
                     <div class="form-group">                           
                         <label for="Number">Phone number: </label>
                         <input type="text" maxlength="12" formControlName="ContactNo"
-                                    placeholder="Mobile Number" class="form-control" ngModel
-                                    pattern="^((\\+91-?)|0)?[0-9]{10}$">                        
+                                    placeholder="Mobile Number" class="form-control">                        
                     </div>
                     <div *ngIf="(f.ContactNo.invalid && f.ContactNo.touched) || f.ContactNo.dirty"
                         style=" text-align: center; margin: auto; padding: 0px 0px 15px;">
@@ -56,13 +104,17 @@
                         <input type="text" formControlName="Address" placeholder="Add Address"
                                     class="form-control">   
                     </div>
+                    <div *ngIf="(f.Address.invalid && f.Address.touched) || f.Address.dirty"
+                        style=" text-align: center; margin: auto; padding: 0px 0px 15px;">
+                        <small *ngIf="f.Address.errors?.required" class="text-danger">Address is
+                            required</small>
+                        <!--question mark(?) is a safe navigation operator-->
+                    </div>
                 </div>
                 <div style="text-align: center;">
-                    <small class="text-success" id="msg" style="display: block;font-size: 14px;"></small>
                     <button type="submit" (click)="onSubmit()" class="btn">Submit</button>
                 </div>
             </form>
-        </div>
     </div>
 </div>
 <!-- /.container-fluid -->

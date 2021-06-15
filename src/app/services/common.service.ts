@@ -27,6 +27,14 @@ export class CommonService {
     headers.append('Content-Type', 'multipart/form-data');
     return this.http.post(this.url + "UploadFile", formData, { headers: headers });
   }
+
+  /*------Partners-----*/
+  /*on load partners*/
+  GetPartners() {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(this.url + "GetPartners", { headers: headers });
+  }
   /*Partners*/
   insertPartners(body){
     let headers= new Headers({'Accept':'Application/json'}) ;

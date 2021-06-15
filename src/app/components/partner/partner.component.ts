@@ -18,12 +18,14 @@ export class PartnerComponent implements OnInit {
   isSubmitted: false;
   partners: Partners;
   message: any;
+  result: any;
   constructor(private formBuilder: FormBuilder, private service: CommonService,
     private spinnerservice: SpinnerService, private notificationservice: NotificationService) {
   }
 
   ngOnInit(): void {
     this.createFormControls();
+    this.loadInitaildata();
   }
 
   handleFileInput(files: FileList) {
@@ -34,6 +36,30 @@ export class PartnerComponent implements OnInit {
     this.service.postFile(this.fileToUpload).subscribe(res => {
       console.log(res);
     })
+  }
+
+ /*on load*/
+ loadInitaildata() {
+
+  this.spinnerservice.show();
+  this.service.GetPartners().subscribe(res => {
+    let response = res;
+    this.result = response;
+    console.log(this.result);
+    this.spinnerservice.hide();
+  }, err => {
+    this.spinnerservice.hide();
+    this.notificationservice.showError(MessageType.ServerError, "Radix");
+  })
+
+}
+/**on insert*/
+  /*popup*/
+  open_popup() {
+    document.getElementById("form_popup").style.display = "block";
+  }
+  close_popup() {
+    document.getElementById("form_popup").style.display = "none";
   }
 
   createFormControls() {
@@ -47,7 +73,7 @@ export class PartnerComponent implements OnInit {
   }
   get f() { return this.partnerForm.controls }
 
-
+  /*on submit*/
   onSubmit() {
 
     if (this.partnerForm.valid) {
