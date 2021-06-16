@@ -3,6 +3,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { MainComponent } from '../main/main.component';
 import { PartnerComponent } from '../partner/partner.component';
 import { LayoutComponent } from "./layout.component";
+import { TestimonialsComponent } from '../testimonials/testimonials.component';
+import { FileuploadComponent } from '../fileupload/fileupload.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,9 @@ const routes: Routes = [
     path: 'dashboard',
     component: LayoutComponent,
     children:[
-      { path:'partner',component:PartnerComponent}
+      { path:'partner',component:PartnerComponent},
+      { path: 'testimonials', component: TestimonialsComponent },
+      { path: 'fileupload', component: FileuploadComponent },
     ]
   }
   

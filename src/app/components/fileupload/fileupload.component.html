@@ -1,0 +1,17 @@
+<div class="container-fluid file_upload">
+    <div class="row">
+        <h4 class="font-weight-bold">Upload file</h4>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3"></div>
+            <div class="card-body">
+                <div class="form-group">
+                        <label for="file">Choose File</label>
+                        <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+                </div>
+                <button type="button" (click)="upload()">
+                    <span class="fa fa-upload" style="margin-right: 4px;"></span>Upload
+                </button>
+            </div>
+        </div> 
+    </div>
+</div>

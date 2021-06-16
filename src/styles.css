@@ -1969,15 +1969,24 @@
   textarea.form-control {
     height: auto;
   }
+/*---------header-----------*/
+/* .main_page {
+
+} */
+  #collapsePages .collapse-inner  > .collapse-item {
+    cursor: pointer;
+  }
 /*Partners start*/
-.partners .card-header h4 {
+.partners .card-header h4,
+.file_upload .card button {
    margin-bottom: 0px;
    background-color: #308230;
 }
 .partners .card-header h4 > a{
   color: white;
 }
-.partners > h4{
+.partners > h4,
+.file_upload h4{
   text-align: center;
   padding-bottom: 15px;
   font-size: 20px;
@@ -2051,11 +2060,23 @@
   .partners #form_popup .form-group{
     width: 100%;
   }
-  .partners .table,
-  .partners .table button{
+  .partners .table
+  {
     font-size: 14px;
   } 
-  .partners .table tbody th{
+  .partners .table th > a{
+    padding: 2px;
+    color: #308230;
+  }
+  .partners .table th a > i{
+    font-size: 16px;
+  }
+  .partners .table th,
+  .main_page .table th{
+    text-align: center;
+  }
+  .partners .table tbody th,
+  .main_page .table tbody th{
     font-weight: normal;
   }
   .partners .navbar-search{
@@ -2077,6 +2098,16 @@
   }
 }
   /*partners end*/
+  /*file upload*/
+  .file_upload .card input{
+    padding: 10px;
+  }
+  .file_upload .card button{
+    border: none;
+    padding: 10px;
+    color: white;
+  }
+   /*file upload end*/
   .form-group {
     margin-bottom: 1rem;
   }

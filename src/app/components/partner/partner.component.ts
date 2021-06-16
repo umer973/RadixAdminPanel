@@ -28,15 +28,6 @@ export class PartnerComponent implements OnInit {
     this.loadInitaildata();
   }
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-  }
-
-  upload() {
-    this.service.postFile(this.fileToUpload).subscribe(res => {
-      console.log(res);
-    })
-  }
 
  /*on load*/
  loadInitaildata() {

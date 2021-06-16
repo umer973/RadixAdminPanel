@@ -11,12 +11,12 @@ import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SpinnerComponent,
-    
+    SpinnerComponent,  
   ],
   imports: [
     BrowserModule,

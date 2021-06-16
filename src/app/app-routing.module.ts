@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MainComponent } from './components/main/main.component';
-import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
@@ -15,7 +14,6 @@ const routes: Routes = [
       children: [
         { path: 'dashboard', component: MainComponent },
         { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-        { path: 'testimonials', component: TestimonialsComponent },
       ]
     },
     {

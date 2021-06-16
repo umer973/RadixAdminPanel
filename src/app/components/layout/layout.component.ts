@@ -16,7 +16,6 @@ export class LayoutComponent implements OnInit, AfterContentInit {
 
   ngOnInit(): void {
     this.loggedUser = this.route.snapshot.queryParamMap.get('user');
-
     console.log(this.loggedUser);
   }
 

@@ -32,7 +32,7 @@
                                 <th>Mobile Number</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,7 +41,10 @@
                                 <th>{{data.ContactNo}}</th>
                                 <th>{{data.Email}}</th>
                                 <th>{{data.Address}}</th>
-                                <button type="submit" class="btn">Update</button>
+                                <th>
+                                    <a href="javascript:void(0)"><i class="fa fa-edit"> </i></a>
+                                    <a href="javascript:void(0)"><i class="fa fa-remove"> </i></a>
+                                </th>      
                             </tr>
                         </tbody>
                     </table>
@@ -118,12 +121,3 @@
     </div>
 </div>
 <!-- /.container-fluid -->
-
-<!--<div class="form-group">
-    <label for="file">Choose File</label>
-    <input type="file"
-           id="file"
-           (change)="handleFileInput($event.target.files)">
-</div>
-
-<button type="button" (click)="upload()">Upload</button>-->
