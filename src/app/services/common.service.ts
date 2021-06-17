@@ -40,4 +40,26 @@ export class CommonService {
     let headers= new Headers({'Accept':'Application/json'}) ;
     return this.http.post(this.url + "SavePartners",body)
    }
+
+   /* LOADING MENUS */
+  getMenus() {
+
+    const Menus = [
+      {
+        "MenuID": 1, "MenuName": "About Us", "path": "",
+      },
+      {
+        "MenuID": 2, "MenuName": "File Upload", "path": "",
+      },
+      {
+        "MenuID": 3, "MenuName": "Other Pages", "path": "",
+        "Pages": [
+            { "path": "page2", "PageName": "Testimonials" },
+            { "path": "page2", "PageName": "Clients" },
+            { "path": "page2", "PageName": "Partners" }
+        ]
+      },
+    ]
+    return Menus;
+  }
 }

@@ -25,18 +25,26 @@
         Interface
     </div>
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="blank.html">
+    <li class="nav-item" [ngClass]="getdropdown(menu.MenuName)" *ngFor="let menu of menus">
+        <a class="nav-link collapsed" routerLink={{menu.path}}>
             <i class="fa fa-file"></i>
-            <span>About us</span>
+            <span>{{menu.MenuName}} </span> <span [ngClass]="getClass(menu.MenuName)"></span>
         </a>
+        <ng-container *ngIf="menu.MenuName=='Other Pages'">
+            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" (click)="navigate(sub.PageName)" *ngFor="let sub of menu.Pages">{{sub.PageName}}</a>
+                </div>
+            </div>
+        </ng-container>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed">
             <i class="fa fa-upload"></i>
             <span (click)="navigate_upload()">File upload</span>
         </a>
-    </li>
+    </li> -->
+
     <!-- Nav Item - Pages Collapse Menu 
     <li class="nav-item">
         <a class="nav-link" routerlink="/layout/testimonials">
@@ -63,25 +71,18 @@
         </a>
     </li>-->
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider"> -->
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+
+    <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fa fa-fw fa-folder"></i>
             <span>Other Pages</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" (click)="navigate()">Testimonials</a>
-                <a class="collapse-item" (click)="navigate2()">Clients</a>
-                <a class="collapse-item" (click)="navigate3()">Partners</a>
-            </div>
-        </div>
-    </li>
+    </li> -->
+    
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
-
 </ul>
 <!-- End of Sidebar -->

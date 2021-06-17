@@ -1976,6 +1976,12 @@
   #collapsePages .collapse-inner  > .collapse-item {
     cursor: pointer;
   }
+  .nav-item .show{
+    display: none;
+  }
+  .menu-item:hover > .show{
+    display: inherit;
+  }
 /*Partners start*/
 .partners .card-header h4,
 .file_upload .card button {
